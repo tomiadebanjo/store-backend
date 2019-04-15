@@ -1,8 +1,37 @@
 {
   "name": "turin-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "https://github.com/tomiadebanjo/turin-backend.git",
   "author": "Tomi Adebanjo <tomiadebanjo@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "lint": "node_modules/.bin/eslint ./src",
+    "lint:fix": "yarn lint --fix",
+    "serve": "node dist/server",
+    "start": "yarn serve",
+    "start:dev": "nodemon --exec babel-node src/server/app.js",
+    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
+  },
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.4.0",
+    "sequelize-cli": "^5.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.7.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.1",
+    "jest": "^24.7.1",
+    "nodemon": "^1.18.11"
+  }
 }
