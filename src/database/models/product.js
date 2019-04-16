@@ -1,59 +1,58 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
   return sequelize.define('product', {
-    'product_id': {
+    product_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      primaryKey: true,
-      comment: "null",
-      autoIncrement: true
+      comment: 'null',
+      autoIncrement: true,
     },
-    'name': {
+    name: {
       type: DataTypes.STRING(100),
       allowNull: false,
-      comment: "null"
+      comment: 'null',
     },
-    'description': {
+    description: {
       type: DataTypes.STRING(1000),
       allowNull: false,
-      comment: "null"
+      comment: 'null',
     },
-    'price': {
+    price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      comment: "null"
+      comment: 'null',
     },
-    'discounted_price': {
+    discounted_price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       defaultValue: '0.00',
-      comment: "null"
+      comment: 'null',
     },
-    'image': {
+    image: {
       type: DataTypes.STRING(150),
       allowNull: true,
-      comment: "null"
+      comment: 'null',
     },
-    'image_2': {
+    image_2: {
       type: DataTypes.STRING(150),
       allowNull: true,
-      comment: "null"
+      comment: 'null',
     },
-    'thumbnail': {
+    thumbnail: {
       type: DataTypes.STRING(150),
       allowNull: true,
-      comment: "null"
+      comment: 'null',
     },
-    'display': {
+    display: {
       type: DataTypes.INTEGER(6),
       allowNull: false,
       defaultValue: '0',
-      comment: "null"
-    }
+      comment: 'null',
+    },
   }, {
     tableName: 'product',
-    timestamps: false
+    timestamps: false,
   });
 };
