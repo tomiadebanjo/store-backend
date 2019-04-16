@@ -7,11 +7,13 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --out-dir dist",
+    "db:seed": "node_modules/.bin/sequelize db:seed:all",
     "lint": "node_modules/.bin/eslint ./src",
     "lint:fix": "yarn lint --fix",
     "serve": "node dist/server",
     "start": "yarn serve",
     "start:dev": "nodemon --exec babel-node src/server/app.js",
+    "pretest": "NODE_ENV=test babel-node src/database/migrations/DbMigrate.js && NODE_ENV=test yarn db:seed",
     "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
   },
   "dependencies": {
