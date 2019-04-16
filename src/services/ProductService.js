@@ -1,14 +1,16 @@
 import models from '../database/models';
-import HttpError from '../helpers/ErrorHandler';
+import PaginationHelper from '../helpers/PaginationHelper';
 
 const { product } = models;
 
 class ProductService {
-  static async fetchAllProducts() {
-    const products = await product.findAll({ raw: true });
+  static async fetchAndCountProducts({ page, limit }) {
+    const paginationQuery = PaginationHelper.paginate(page, limit);
+    const result = await product.findAndCountAll({
+      ...paginationQuery
+    });
 
-    HttpError.throwErrorIfNullOrEmpty(products, 'No Products Available', 200);
-    return products;
+    return result;
   }
 }
 

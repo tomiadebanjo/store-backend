@@ -11,6 +11,7 @@ describe('Product Controller Test', () => {
       const response = await request(server)
         .get('/products')
         .set('Content-Type', 'application/json')
+        .send();
 
       expect(response.status).toEqual(200);
       expect(response.body).toHaveProperty('count');

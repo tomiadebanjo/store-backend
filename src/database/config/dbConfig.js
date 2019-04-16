@@ -1,8 +1,6 @@
-import dotenv from 'dotenv';
+require('dotenv').config();
 
-dotenv.config();
-
-const config = {
+module.exports = {
   development: {
     username: 'root',
     password: 'root',
@@ -13,7 +11,7 @@ const config = {
   test: {
     username: 'root',
     password: 'root',
-    database: 'turin',
+    database: 'turin_test',
     host: '127.0.0.1',
     dialect: 'mysql',
   },
@@ -25,5 +23,3 @@ const config = {
     dialect: 'mysql',
   },
 };
-
-export default config;
