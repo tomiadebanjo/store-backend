@@ -1,5 +1,6 @@
 import express from 'express';
 import ProductController from './ProductController';
+import ProductValidator from '../../middleware/ProductValidator';
 
 const productRouter = express.Router();
 
@@ -9,16 +10,25 @@ productRouter.get('/products', ProductController.getAllProducts);
 // Get products by category
 productRouter.get(
   '/products/inCategory/:category_id',
+  ProductValidator.validateParamId,
+  ProductValidator.validateQuery,
   ProductController.getProductsByCategory
 );
 
 // Get products by department
 productRouter.get(
   '/products/inDepartment/:department_id',
+  ProductValidator.validateParamId,
+  ProductValidator.validateQuery,
   ProductController.getProductsByDepartment
 );
 
 // Get products by search string
-// productRouter.get('/products/search', ProductController.getProductsBySearchString);
+productRouter.get(
+  '/products/search',
+  ProductValidator.validateQuery,
+  ProductValidator.validateSearchQuery,
+  ProductController.getProductsBySearchString
+);
 
 export default productRouter;

@@ -38,7 +38,7 @@ describe('Product Controller Test', () => {
   });
 
   describe('Get Products By Department', () => {
-    it('Should return products in a category', async () => {
+    it('Should return products in the department', async () => {
       const response = await request(server)
         .get('/products/inDepartment/2')
         .set('Content-Type', 'application/json')
@@ -50,6 +50,41 @@ describe('Product Controller Test', () => {
 
       expect(response.status).toEqual(200);
       expect(response.body.count).toEqual(1);
+      expect(response.body.rows[0]).toHaveProperty('description');
+      expect(response.body.rows[0]).toHaveProperty('name');
+    });
+
+    it('Should return products in a category', async () => {
+      const response = await request(server)
+        .get('/products/inDepartment/9')
+        .set('Content-Type', 'application/json')
+        .query({
+          page: 1,
+          limit: 10,
+          description_length: 89
+        });
+
+      expect(response.status).toEqual(200);
+      expect(response.body.message).toEqual('There are no products in this department');
+      expect(response.body.count).toEqual(0);
+      expect(response.body.rows).toEqual([]);
+    });
+  });
+
+  describe('Search Products By Keyword', () => {
+    it('Should return products that match the keyword', async () => {
+      const response = await request(server)
+        .get('/products/search')
+        .set('Content-Type', 'application/json')
+        .query({
+          page: 1,
+          limit: 10,
+          description_length: 89,
+          query_string: 'beau'
+        });
+
+      expect(response.status).toEqual(200);
+      expect(response.body.count).toEqual(3);
       expect(response.body.rows[0]).toHaveProperty('description');
       expect(response.body.rows[0]).toHaveProperty('name');
     });
