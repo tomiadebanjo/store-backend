@@ -1,9 +1,7 @@
 class ResponseHelper {
-  static sendResponse(res, code, success, message, data) {
+  static sendResponse(res, code, data) {
     return res.status(code).json({
-      success,
-      message,
-      data,
+      ...data,
     });
   }
 }
