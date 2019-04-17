@@ -36,4 +36,22 @@ describe('Product Controller Test', () => {
       expect(response.body.rows[0]).toHaveProperty('name');
     });
   });
+
+  describe('Get Products By Department', () => {
+    it('Should return products in a category', async () => {
+      const response = await request(server)
+        .get('/products/inDepartment/2')
+        .set('Content-Type', 'application/json')
+        .query({
+          page: 1,
+          limit: 10,
+          description_length: 89
+        });
+
+      expect(response.status).toEqual(200);
+      expect(response.body.count).toEqual(1);
+      expect(response.body.rows[0]).toHaveProperty('description');
+      expect(response.body.rows[0]).toHaveProperty('name');
+    });
+  });
 });

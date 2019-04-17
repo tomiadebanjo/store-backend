@@ -34,6 +34,30 @@ class ProductService {
 
     return products;
   }
+
+  static async fetchProductsByDepartment({ page, limit, department_id }) {
+    const paginationQuery = PaginationHelper.paginate(page, limit);
+
+    const products = await product.findAndCountAll({
+      include: [{
+        model: category,
+        as: 'Category',
+        where: {
+          department_id
+        },
+        attributes: []
+      }],
+      ...paginationQuery,
+      attributes: productAttributes,
+      raw: true
+    });
+
+    return products;
+  }
+
+  // static fetchProductsBySearchKeyword() {
+
+  // }
 }
 
 export default ProductService;
