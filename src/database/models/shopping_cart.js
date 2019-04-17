@@ -1,47 +1,47 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('shopping_cart', {
-    'item_id': {
+export default (sequelize, DataTypes) => {
+  const shopping_cart = sequelize.define('shopping_cart', {
+    item_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      primaryKey: true,
-      comment: "null",
+      comment: 'null',
       autoIncrement: true
     },
-    'cart_id': {
+    cart_id: {
       type: DataTypes.CHAR(32),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'product_id': {
+    product_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'attributes': {
+    attributes: {
       type: DataTypes.STRING(1000),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'quantity': {
+    quantity: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'buy_now': {
+    buy_now: {
       type: DataTypes.INTEGER(1),
       allowNull: false,
       defaultValue: '1',
-      comment: "null"
+      comment: 'null'
     },
-    'added_on': {
+    added_on: {
       type: DataTypes.DATE,
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     }
   }, {
-    tableName: 'shopping_cart'
+    tableName: 'shopping_cart',
+    timestamps: false
   });
+
+  return shopping_cart;
 };

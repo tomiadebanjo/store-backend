@@ -1,7 +1,5 @@
-/* jshint indent: 2 */
-
-module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('product', {
+export default (sequelize, DataTypes) => {
+  const product = sequelize.define('product', {
     product_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -55,4 +53,14 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'product',
     timestamps: false,
   });
+
+  product.associate = (models) => {
+    product.belongsToMany(models.category, {
+      as: 'Category',
+      through: models.product_category,
+      foreignKey: 'product_id'
+    });
+  };
+
+  return product;
 };

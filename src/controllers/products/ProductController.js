@@ -31,6 +31,35 @@ class ProductController {
       return HttpError.sendErrorResponse(error, res);
     }
   }
+
+  static async getProductsByCategory(req, res) {
+    try {
+      const { params: { category_id }, query: { page, limit, description_length } } = req;
+      const requiredPage = page || 1;
+      const requiredLimit = limit || 20;
+      const descriptionLength = description_length || 200;
+
+      const { rows, count } = await ProductService.fetchProductsByCategory({
+        page: requiredPage, limit: requiredLimit, category_id
+      });
+
+      if (rows && rows.length < 1) {
+        return res.status(200).json({
+          message: 'There are no products in this category',
+          count,
+          rows
+        });
+      }
+
+      const products = await ProductHelpers.formatData(rows, descriptionLength);
+      return res.status(200).send({
+        count,
+        rows: products,
+      });
+    } catch (error) {
+      return HttpError.sendErrorResponse(error, res);
+    }
+  }
 }
 
 export default ProductController;

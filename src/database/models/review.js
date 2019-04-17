@@ -1,41 +1,41 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('review', {
-    'review_id': {
+export default (sequelize, DataTypes) => {
+  const review = sequelize.define('review', {
+    review_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      primaryKey: true,
-      comment: "null",
+      comment: 'null',
       autoIncrement: true
     },
-    'customer_id': {
+    customer_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'product_id': {
+    product_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'review': {
+    review: {
       type: DataTypes.TEXT,
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'rating': {
+    rating: {
       type: DataTypes.INTEGER(6),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'created_on': {
+    created_on: {
       type: DataTypes.DATE,
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     }
   }, {
-    tableName: 'review'
+    tableName: 'review',
+    timestamps: false
   });
+
+  return review;
 };

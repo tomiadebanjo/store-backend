@@ -1,26 +1,26 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('tax', {
-    'tax_id': {
+export default (sequelize, DataTypes) => {
+  const tax = sequelize.define('tax', {
+    tax_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      primaryKey: true,
-      comment: "null",
+      comment: 'null',
       autoIncrement: true
     },
-    'tax_type': {
+    tax_type: {
       type: DataTypes.STRING(100),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'tax_percentage': {
+    tax_percentage: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     }
   }, {
-    tableName: 'tax'
+    tableName: 'tax',
+    timestamps: false
   });
+
+  return tax;
 };
