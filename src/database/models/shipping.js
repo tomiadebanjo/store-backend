@@ -1,31 +1,31 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('shipping', {
-    'shipping_id': {
+export default function (sequelize, DataTypes) {
+  const shipping = sequelize.define('shipping', {
+    shipping_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      primaryKey: true,
-      comment: "null",
+      comment: 'null',
       autoIncrement: true
     },
-    'shipping_type': {
+    shipping_type: {
       type: DataTypes.STRING(100),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'shipping_cost': {
+    shipping_cost: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'shipping_region_id': {
+    shipping_region_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     }
   }, {
-    tableName: 'shipping'
+    tableName: 'shipping',
+    timestamps: false
   });
-};
+
+  return shipping;
+}

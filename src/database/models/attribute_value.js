@@ -1,26 +1,26 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('attribute_value', {
-    'attribute_value_id': {
+export default (sequelize, DataTypes) => {
+  const attribute_value = sequelize.define('attribute_value', {
+    attribute_value_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      primaryKey: true,
-      comment: "null",
+      comment: 'null',
       autoIncrement: true
     },
-    'attribute_id': {
+    attribute_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'value': {
+    value: {
       type: DataTypes.STRING(100),
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     }
   }, {
-    tableName: 'attribute_value'
+    tableName: 'attribute_value',
+    timestamps: false,
   });
+
+  return attribute_value;
 };

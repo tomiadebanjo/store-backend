@@ -1,68 +1,68 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('orders', {
-    'order_id': {
+export default (sequelize, DataTypes) => {
+  const orders = sequelize.define('orders', {
+    order_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      primaryKey: true,
-      comment: "null",
+      comment: 'null',
       autoIncrement: true
     },
-    'total_amount': {
+    total_amount: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       defaultValue: '0.00',
-      comment: "null"
+      comment: 'null'
     },
-    'created_on': {
+    created_on: {
       type: DataTypes.DATE,
       allowNull: false,
-      comment: "null"
+      comment: 'null'
     },
-    'shipped_on': {
+    shipped_on: {
       type: DataTypes.DATE,
       allowNull: true,
-      comment: "null"
+      comment: 'null'
     },
-    'status': {
+    status: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       defaultValue: '0',
-      comment: "null"
+      comment: 'null'
     },
-    'comments': {
+    comments: {
       type: DataTypes.STRING(255),
       allowNull: true,
-      comment: "null"
+      comment: 'null'
     },
-    'customer_id': {
+    customer_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
-      comment: "null"
+      comment: 'null'
     },
-    'auth_code': {
+    auth_code: {
       type: DataTypes.STRING(50),
       allowNull: true,
-      comment: "null"
+      comment: 'null'
     },
-    'reference': {
+    reference: {
       type: DataTypes.STRING(50),
       allowNull: true,
-      comment: "null"
+      comment: 'null'
     },
-    'shipping_id': {
+    shipping_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
-      comment: "null"
+      comment: 'null'
     },
-    'tax_id': {
+    tax_id: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
-      comment: "null"
+      comment: 'null'
     }
   }, {
-    tableName: 'orders'
+    tableName: 'orders',
+    timestamps: false
   });
+
+  return orders;
 };

@@ -1,7 +1,5 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define(
+export default (sequelize, DataTypes) => {
+  const product_attribute = sequelize.define(
     'product_attribute',
     {
       product_id: {
@@ -22,4 +20,6 @@ module.exports = function(sequelize, DataTypes) {
       tableName: 'product_attribute'
     }
   );
+
+  return product_attribute;
 };
