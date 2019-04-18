@@ -65,7 +65,9 @@ describe('Product Controller Test', () => {
         });
 
       expect(response.status).toEqual(200);
-      expect(response.body.message).toEqual('There are no products in this department');
+      expect(response.body.message).toEqual(
+        'There are no products in this department'
+      );
       expect(response.body.count).toEqual(0);
       expect(response.body.rows).toEqual([]);
     });
@@ -87,6 +89,27 @@ describe('Product Controller Test', () => {
       expect(response.body.count).toEqual(3);
       expect(response.body.rows[0]).toHaveProperty('description');
       expect(response.body.rows[0]).toHaveProperty('name');
+    });
+  });
+
+  describe('Get Product Details', () => {
+    it('should return single product details', async () => {
+      const response = await request(server)
+        .get('/products/1')
+        .set('Content-Type', 'application/json');
+
+      expect(response.status).toEqual(200);
+      expect(response.body).toHaveProperty('description');
+      expect(response.body).toHaveProperty('name');
+    });
+
+    it('should not find a product and return an error message', async () => {
+      const response = await request(server)
+        .get('/products/200')
+        .set('Content-Type', 'application/json');
+
+      expect(response.status).toEqual(200);
+      expect(response.body.message).toEqual('Product not found');
     });
   });
 });
