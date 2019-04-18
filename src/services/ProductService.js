@@ -93,6 +93,11 @@ class ProductService {
 
     return result;
   }
+
+  static async fetchProductDetails(product_id) {
+    const result = await product.findByPk(+product_id, { raw: true });
+    return result;
+  }
 }
 
 export default ProductService;

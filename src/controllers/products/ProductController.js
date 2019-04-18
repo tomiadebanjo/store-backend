@@ -122,10 +122,38 @@ class ProductController {
         }
       );
 
+      if (rows && rows.length < 1) {
+        return res.status(200).json({
+          message: 'Sorry no products match your search keyword',
+          count,
+          rows
+        });
+      }
+
       const products = await ProductHelpers.formatData(rows, descriptionLength);
       return res.status(200).send({
         count,
         rows: products
+      });
+    } catch (error) {
+      return HttpError.sendErrorResponse(error, res);
+    }
+  }
+
+  static async getProductDetails(req, res) {
+    try {
+      const { params: { product_id } } = req;
+
+      const product = await ProductService.fetchProductDetails(product_id);
+
+      if (!product) {
+        return res.status(200).json({
+          message: 'Product not found',
+        });
+      }
+
+      return res.status(200).send({
+        ...product
       });
     } catch (error) {
       return HttpError.sendErrorResponse(error, res);

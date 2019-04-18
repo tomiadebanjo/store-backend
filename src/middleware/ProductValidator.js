@@ -13,11 +13,14 @@ class ProductValidator {
 
   static validateParamId(req, res, next) {
     const {
-      params: { category_id, department_id }
+      params: { category_id, department_id, product_id }
     } = req;
 
-    const parameter = category_id || department_id;
-    const parameter_name = category_id ? 'category_id' : 'department_id';
+    const parameter = category_id || department_id || product_id;
+    let parameter_name = category_id ? 'category_id' : 'department_id';
+    if (product_id) {
+      parameter_name = 'product_id';
+    }
 
     return GeneralValidator.validateNumber(parameter)
       ? next()
