@@ -1,3 +1,5 @@
+import bcrypt from 'bcryptjs';
+
 export default (sequelize, DataTypes) => {
   const customer = sequelize.define(
     'customer',
@@ -21,7 +23,7 @@ export default (sequelize, DataTypes) => {
         unique: true
       },
       password: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(150),
         allowNull: false,
         comment: 'null'
       },
@@ -87,6 +89,21 @@ export default (sequelize, DataTypes) => {
       timestamps: false
     }
   );
+
+  customer.beforeValidate((user) => {
+    // eslint-disable-next-line no-param-reassign
+    user.password = bcrypt.hashSync(user.password, 8);
+  });
+
+  customer.prototype.checkPassword = ((password, hash) => bcrypt.compareSync(password, hash));
+
+  // eslint-disable-next-line func-names
+  customer.prototype.toJSON = function () {
+    const values = { ...this.get() };
+
+    delete values.password;
+    return values;
+  };
 
   return customer;
 };
