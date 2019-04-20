@@ -97,8 +97,9 @@ export default (sequelize, DataTypes) => {
 
   customer.prototype.checkPassword = ((password, hash) => bcrypt.compareSync(password, hash));
 
+
   // eslint-disable-next-line func-names
-  customer.prototype.toJSON = function () {
+  customer.prototype.toJSONData = function () {
     const values = { ...this.get() };
 
     delete values.password;

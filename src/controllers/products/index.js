@@ -1,6 +1,7 @@
 import express from 'express';
 import ProductController from './ProductController';
 import ProductValidator from '../../middleware/ProductValidator';
+import AuthValidator from '../../middleware/AuthValidator';
 
 const productRouter = express.Router();
 
@@ -10,6 +11,7 @@ productRouter.get('/products', ProductController.getAllProducts);
 // Get products by search string
 productRouter.get(
   '/products/search',
+  AuthValidator.validateToken,
   ProductValidator.validateQuery,
   ProductValidator.validateSearchQuery,
   ProductController.getProductsBySearchString
