@@ -11,7 +11,6 @@ productRouter.get('/products', ProductController.getAllProducts);
 // Get products by search string
 productRouter.get(
   '/products/search',
-  AuthValidator.validateToken,
   ProductValidator.validateQuery,
   ProductValidator.validateSearchQuery,
   ProductController.getProductsBySearchString

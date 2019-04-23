@@ -11,9 +11,13 @@ class InputValidator {
         .not()
         .matches(/\d/g)
         .withMessage('Name cannot contain numbers'),
-      body('email').exists().withMessage('email is required')
-        .isEmail()
-        .withMessage('A valid email is required'),
+      ...InputValidator.loginValidator()
+    ];
+  }
+
+  static loginValidator() {
+    return [
+      ...InputValidator.emailValidation(),
       ...InputValidator.passwordValidation()
     ];
   }
@@ -34,7 +38,7 @@ class InputValidator {
         .not()
         .matches(/\s/g)
         .withMessage('Spaces are not allowed')
-    ]
+    ];
   }
 }
 
