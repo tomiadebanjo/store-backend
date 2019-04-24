@@ -1,5 +1,6 @@
 import CustomerService from '../../services/CustomerService';
 import JwtHelper from '../../helpers/JwtHelper';
+import { decode } from 'punycode';
 
 class CustomerController {
   static async signUp(req, res, next) {
@@ -10,6 +11,7 @@ class CustomerController {
       if (!created) {
         return res.status(409).send({
           error: {
+            code: 'USR_04',
             message: 'User already exists with this email address'
           }
         });
@@ -52,6 +54,18 @@ class CustomerController {
         accessToken,
         expires_in: expiresIn
       });
+    } catch (error) {
+      return next(error);
+    }
+  }
+
+  static async updateCustomer(req, res, next) {
+    try {
+      const { body, decoded } = req;
+      const email = body.email || decoded.email;
+      const user = await CustomerService.updateUser({ ...body, email });
+
+      res.status(200).send(user);
     } catch (error) {
       return next(error);
     }

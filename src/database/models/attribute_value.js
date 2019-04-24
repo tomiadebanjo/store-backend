@@ -22,5 +22,12 @@ export default (sequelize, DataTypes) => {
     timestamps: false,
   });
 
+  attribute_value.associate = (models) => {
+    attribute_value.belongsTo(models.attribute, {
+      foreignKey: 'attribute_id',
+      targetKey: 'attribute_id'
+    });
+  };
+
   return attribute_value;
 };

@@ -21,11 +21,16 @@ app.get('/', (req, res) => {
 routes(app);
 
 app.use((err, req, res, next) => {
-  const code = err.statusCode || 500;
-  const error = { errors: err.data } || err;
+  const { statusCode, data, message } = err;
+  const code = statusCode || 500;
+  const errorMessage = message;
 
   console.error(err.stack);
-  res.status(code).send(error);
+  if (data) {
+    return res.status(code).send({ errors: data });
+  }
+
+  return res.status(code).send({ message: errorMessage });
 });
 
 const server = app.listen(port, () => console.log(`Server Listening on port ${port}`));
