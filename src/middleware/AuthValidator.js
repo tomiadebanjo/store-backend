@@ -9,7 +9,7 @@ class AuthValidator {
         return res.status(401).send({
           code: 'AUT_O1',
           message: 'USER-KEY is required',
-          field: 'USER_KEY'
+          field: 'USER-KEY'
         });
       }
 

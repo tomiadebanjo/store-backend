@@ -60,6 +60,11 @@ export default (sequelize, DataTypes) => {
       through: models.product_category,
       foreignKey: 'product_id'
     });
+    product.belongsToMany(models.attribute, {
+      as: 'ProductAttributes',
+      through: models.product_attribute,
+      foreignKey: 'product_id'
+    });
   };
 
   return product;

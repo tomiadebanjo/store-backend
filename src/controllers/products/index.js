@@ -1,7 +1,6 @@
 import express from 'express';
 import ProductController from './ProductController';
 import ProductValidator from '../../middleware/ProductValidator';
-import AuthValidator from '../../middleware/AuthValidator';
 
 const productRouter = express.Router();
 

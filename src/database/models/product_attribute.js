@@ -21,5 +21,18 @@ export default (sequelize, DataTypes) => {
     }
   );
 
+  product_attribute.associate = (models) => {
+    product_attribute.belongsTo(models.attribute, {
+      foreignKey: 'attribute_value_id',
+      targetKey: 'attribute_id',
+    });
+
+    product_attribute.belongsTo(models.product, {
+      foreignKey: 'product_id',
+      targetKey: 'product_id',
+    });
+  };
+
+
   return product_attribute;
 };
