@@ -1,6 +1,5 @@
 import CustomerService from '../../services/CustomerService';
 import JwtHelper from '../../helpers/JwtHelper';
-import { decode } from 'punycode';
 
 class CustomerController {
   static async signUp(req, res, next) {
@@ -35,7 +34,12 @@ class CustomerController {
     try {
       const { body } = req;
       const user = await CustomerService.findUser(body);
-      const isPasswordMatch = user ? user.checkPassword(body.password, user.password) : user;
+      const isPasswordMatch = user ? user.checkPassword(body.password, user.toJSON().password) : user;
+      // const isPasswordMatch = user ? body.password === user.toJSON().password : user;
+
+      console.log(body.password);
+      console.log(user.toJSON().password);
+      console.log(user.checkPassword(body.password, user.toJSON().password));
 
       if (!isPasswordMatch) {
         return res.status(409).send({
@@ -65,7 +69,7 @@ class CustomerController {
       const email = body.email || decoded.email;
       const user = await CustomerService.updateUser({ ...body, email });
 
-      res.status(200).send(user);
+      return res.status(200).send(user);
     } catch (error) {
       return next(error);
     }

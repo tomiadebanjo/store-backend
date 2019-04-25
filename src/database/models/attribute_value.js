@@ -27,6 +27,12 @@ export default (sequelize, DataTypes) => {
       foreignKey: 'attribute_id',
       targetKey: 'attribute_id'
     });
+
+    attribute_value.belongsToMany(models.product, {
+      as: 'Products',
+      through: models.product_attribute,
+      foreignKey: 'attribute_value_id'
+    });
   };
 
   return attribute_value;

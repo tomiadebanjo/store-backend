@@ -15,11 +15,17 @@ class CustomerService {
   }
 
   static async updateUser(body) {
-    const user = await CustomerService.findUser({ email: body.email });
+    const { email } = body;
+    const user = await CustomerService.findUser({ email });
     HttpError.throwErrorIfNullOrEmpty(user, 'User not found');
 
-    const result = await user.update({ ...body }, { returning: true });
-    return { ...result.toJSON() };
+    const [result] = await customer.update({ ...body }, { where: { email } });
+    if (result) {
+      const updatedUser = await CustomerService.findUser({ email });
+      return { ...updatedUser.toJSON() };
+    }
+
+    HttpError.throwErrorIfNullOrEmpty(result, 'Update Failed', 500);
   }
 }
 

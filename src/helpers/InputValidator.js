@@ -1,5 +1,5 @@
-import { body } from 'express-validator/check';
-import { sanitizeBody } from 'express-validator/filter';
+import { body, check } from 'express-validator/check';
+import { sanitizeBody, sanitize } from 'express-validator/filter';
 
 class InputValidator {
   static signUpValidator() {
@@ -114,9 +114,11 @@ class InputValidator {
 
   static integerValidator(field) {
     return [
-      body(field)
+      sanitize(field).trim(),
+      check(field)
         .isInt({ min: 1 })
-        .withMessage(`Enter a valid ${field} number`)
+        .withMessage(`Enter a valid ${field} number`),
+      sanitize(field).toInt()
     ];
   }
 
@@ -124,7 +126,7 @@ class InputValidator {
     const requiredStringFields = ['address_1', 'city', 'region', 'postal_code', 'country'];
     const validations = requiredStringFields.flatMap(item => InputValidator.stringValidator(item));
     return [
-      sanitizeBody([...requiredStringFields]).trim(),
+      sanitizeBody([...requiredStringFields, 'address_2']).trim(),
       ...validations,
       ...InputValidator.optionalStringValidator('address_2'),
       ...InputValidator.integerValidator('shipping_region_id')

@@ -22,7 +22,7 @@ export default (sequelize, DataTypes) => {
   );
 
   product_attribute.associate = (models) => {
-    product_attribute.belongsTo(models.attribute, {
+    product_attribute.belongsTo(models.attribute_value, {
       foreignKey: 'attribute_value_id',
       targetKey: 'attribute_id',
     });
