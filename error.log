@@ -1,0 +1,17 @@
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 15:57:21"}
+{"message":{},"level":"error","service":"Turin Backend","timestamp":"2019-04-26 15:58:50"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 15:59:08"}
+{"message":{"statusCode":400,"data":[{"location":"body","param":"product_id","value":"18-","msg":"Enter a valid product_id number"}]},"level":"error","service":"Turin Backend","timestamp":"2019-04-26 15:59:23"}
+{"level":"error","message":{"statusCode":400,"data":[{"location":"body","param":"product_id","value":"18-","msg":"Enter a valid product_id number"}]},"service":"Turin Backend","timestamp":"2019-04-26 16:00:21"}
+{"level":"error","message":{"statusCode":400,"data":[{"location":"body","param":"product_id","value":"18-","msg":"Enter a valid product_id number"}]},"service":"Turin Backend","timestamp":"2019-04-26 16:00:22"}
+{"level":"error","message":{"statusCode":400,"data":[{"location":"body","param":"product_id","value":"18-","msg":"Enter a valid product_id number"}]},"service":"Turin Backend","timestamp":"2019-04-26 16:00:37"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:01:50"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:01:51"}
+{"service":"Turin Backend","level":"error","message":"hi","timestamp":"2019-04-26 16:04:10"}
+{"service":"Turin Backend","level":"error","message":"hi","timestamp":"2019-04-26 16:04:14"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:04:47"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:04:49"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:05:10"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:05:12"}
+{"message":"Error: Provide a valid product_id\n    at Function.throwErrorIfNullOrEmpty (/Users/oluwatominiyinadebayo/Documents/Projects/personal/turin-backend/src/helpers/ErrorHandler.js:12:13)\n    at throwErrorIfNullOrEmpty (/Users/oluwatominiyinadebayo/Documents/Projects/personal/turin-backend/src/controllers/shoppingCart/ShoppingCartController.js:16:17)","level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:05:31"}
+{"message":"Error: Provide a valid product_id\n    at Function.throwErrorIfNullOrEmpty (/Users/oluwatominiyinadebayo/Documents/Projects/personal/turin-backend/src/helpers/ErrorHandler.js:12:13)\n    at throwErrorIfNullOrEmpty (/Users/oluwatominiyinadebayo/Documents/Projects/personal/turin-backend/src/controllers/shoppingCart/ShoppingCartController.js:16:17)","level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:06:22"}

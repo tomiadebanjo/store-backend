@@ -1,0 +1,55 @@
+{"message":"Server Listening on port 5000","level":"info","service":"your-service-name","timestamp":"2019-04-26 15:54:34"}
+{"message":"Server Listening on port 5000","level":"info","service":"your-service-name","timestamp":"2019-04-26 15:56:07"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 15:56:18"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 15:57:16"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 15:57:21"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 15:58:47"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 15:58:49"}
+{"message":{},"level":"error","service":"Turin Backend","timestamp":"2019-04-26 15:58:50"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 15:59:06"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 15:59:08"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 15:59:22"}
+{"message":{"statusCode":400,"data":[{"location":"body","param":"product_id","value":"18-","msg":"Enter a valid product_id number"}]},"level":"error","service":"Turin Backend","timestamp":"2019-04-26 15:59:23"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 15:59:49"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:00:12"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:00:16"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:00:21"}
+{"level":"error","message":{"statusCode":400,"data":[{"location":"body","param":"product_id","value":"18-","msg":"Enter a valid product_id number"}]},"service":"Turin Backend","timestamp":"2019-04-26 16:00:21"}
+{"level":"error","message":{"statusCode":400,"data":[{"location":"body","param":"product_id","value":"18-","msg":"Enter a valid product_id number"}]},"service":"Turin Backend","timestamp":"2019-04-26 16:00:22"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:00:32"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:00:34"}
+{"level":"error","message":{"statusCode":400,"data":[{"location":"body","param":"product_id","value":"18-","msg":"Enter a valid product_id number"}]},"service":"Turin Backend","timestamp":"2019-04-26 16:00:37"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:01:20"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:01:25"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:01:27"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:01:31"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:01:46"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:01:49"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:01:50"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:01:51"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:02:03"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:02:05"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:04:07"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:04:09"}
+{"service":"Turin Backend","level":"error","message":"hi","timestamp":"2019-04-26 16:04:10"}
+{"service":"Turin Backend","level":"error","message":"hi","timestamp":"2019-04-26 16:04:14"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:04:32"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:04:37"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:04:38"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:04:47"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:04:47"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:04:49"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:05:02"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:05:05"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:05:09"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:05:10"}
+{"level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:05:12"}
+{"message":"Error: Provide a valid product_id\n    at Function.throwErrorIfNullOrEmpty (/Users/oluwatominiyinadebayo/Documents/Projects/personal/turin-backend/src/helpers/ErrorHandler.js:12:13)\n    at throwErrorIfNullOrEmpty (/Users/oluwatominiyinadebayo/Documents/Projects/personal/turin-backend/src/controllers/shoppingCart/ShoppingCartController.js:16:17)","level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:05:31"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:05:48"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:05:57"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:06:00"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:06:07"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:06:10"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:06:15"}
+{"message":"Server Listening on port 5000","level":"info","service":"Turin Backend","timestamp":"2019-04-26 16:06:20"}
+{"message":"Error: Provide a valid product_id\n    at Function.throwErrorIfNullOrEmpty (/Users/oluwatominiyinadebayo/Documents/Projects/personal/turin-backend/src/helpers/ErrorHandler.js:12:13)\n    at throwErrorIfNullOrEmpty (/Users/oluwatominiyinadebayo/Documents/Projects/personal/turin-backend/src/controllers/shoppingCart/ShoppingCartController.js:16:17)","level":"error","service":"Turin Backend","timestamp":"2019-04-26 16:06:22"}
