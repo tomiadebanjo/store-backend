@@ -16,7 +16,8 @@ class HelperUtility {
 
     if (url.startsWith('/customers/creditCard')) {
       req.body = { credit_card };
-    } else {
+    }
+    if (url.startsWith('/customers/address')) {
       req.body = {
         address_1,
         address_2,
@@ -26,6 +27,10 @@ class HelperUtility {
         country,
         shipping_region_id
       };
+    }
+
+    if (url.startsWith('/customer')) {
+      req.body = { ...req.body, password: undefined };
     }
 
     next();

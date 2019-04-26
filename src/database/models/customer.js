@@ -90,13 +90,12 @@ export default (sequelize, DataTypes) => {
     }
   );
 
-  customer.beforeValidate((user) => {
+  customer.beforeCreate((user) => {
     // eslint-disable-next-line no-param-reassign
     user.password = bcrypt.hashSync(user.password, 8);
   });
 
   customer.prototype.checkPassword = ((password, hash) => bcrypt.compareSync(password, hash));
-
 
   // eslint-disable-next-line func-names
   customer.prototype.toJSONData = function () {
