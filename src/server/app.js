@@ -4,10 +4,12 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import session from 'express-session';
 import sequelizeStore from 'connect-session-sequelize';
+import morgan from 'morgan';
+
 import db from '../database/models';
 import routes from '../routes';
 import ShoppingCartUtility from '../middleware/ShoppingCartUtility';
-
+import logger from '../helpers/logger';
 
 dotenv.config();
 
@@ -21,6 +23,7 @@ const myStore = new SessionStore({
 });
 
 app.use(cors());
+app.use(morgan('dev'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -39,23 +42,26 @@ app.get('/', (req, res) => {
   res.send('Welcome to the e-commerce platform');
 });
 
+
 routes(app);
 
 app.use((err, req, res, next) => {
-  const { statusCode, data, message } = err;
+  const {
+    statusCode, data, message, stack
+  } = err;
   const code = statusCode || 500;
   const errorMessage = message;
 
-  console.error(err.stack);
   if (data) {
     return res.status(code).send({ errors: data });
   }
 
+  logger.error(stack);
   return res.status(code).send({ message: errorMessage });
 });
 
 app.all('*', (req, res) => res.status(404).send({ message: 'Route not found' }));
 
-const server = app.listen(port, () => console.log(`Server Listening on port ${port}`));
+const server = app.listen(port, () => logger.info(`Server Listening on port ${port}`));
 
 export default server;
