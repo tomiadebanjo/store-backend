@@ -16,6 +16,9 @@
     "pretest": "NODE_ENV=test babel-node src/database/migrations/DbMigrate.js && NODE_ENV=test yarn db:seed",
     "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
   },
+  "engines": {
+    "node": "11.12.0"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",

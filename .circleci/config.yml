@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/turin-backend
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:11.12.0
       - image: tkuchiki/delayed-mysql
         environment:
           MYSQL_ROOT_PASSWORD: root
