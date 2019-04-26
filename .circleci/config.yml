@@ -1,0 +1,58 @@
+defaults: &defaults
+  working_directory: ~/tembea-backend
+  docker:
+    - image: circleci/node:latest
+    - image: circleci/mysql:latest
+      environments:
+        MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        MYSQL_ROOT_PASSWORD: ''
+        MYSQL_DATABASE: circleci
+
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - node_modules
+
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Run Tests
+          command: yarn test
+      - run:
+          name: code-coverage
+          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
+          path: test-results.xml
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+
