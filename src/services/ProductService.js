@@ -3,7 +3,7 @@ import models from '../database/models';
 import PaginationHelper from '../helpers/PaginationHelper';
 
 const { Op } = Sequelize;
-const { product, category } = models;
+const { product, category, attribute, attribute_value } = models;
 const productAttributes = [
   'product_id',
   'name',
@@ -96,6 +96,25 @@ class ProductService {
 
   static async fetchProductDetails(product_id) {
     const result = await product.findByPk(+product_id, { raw: true });
+    return result;
+  }
+
+  static async fetchProductByIdAndAttributeValue(value) {
+    const result = await product.findByPk(1, {
+      include: [{
+        model: attribute_value,
+        as: 'ProductAttributes',
+        include: [
+          {
+            model: attribute
+          }
+        ],
+        where: {
+          value
+        }
+      }],
+    });
+
     return result;
   }
 }
