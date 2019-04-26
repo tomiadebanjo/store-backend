@@ -16,7 +16,7 @@ e-commerce application
 
 ## API
 
-API is live at _________
+API is live at https://ecommerce-backend-9012.herokuapp.com/
 
 ## API Documentation
 
