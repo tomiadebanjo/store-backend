@@ -43,5 +43,11 @@ export default (sequelize, DataTypes) => {
     timestamps: false
   });
 
+  shopping_cart.associate = (models) => {
+    shopping_cart.belongsTo(models.product, {
+      foreignKey: 'product_id',
+      targetKey: 'product_id'
+    });
+  }
   return shopping_cart;
 };

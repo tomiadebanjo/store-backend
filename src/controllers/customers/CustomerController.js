@@ -35,11 +35,6 @@ class CustomerController {
       const { body } = req;
       const user = await CustomerService.findUser(body);
       const isPasswordMatch = user ? user.checkPassword(body.password, user.toJSON().password) : user;
-      // const isPasswordMatch = user ? body.password === user.toJSON().password : user;
-
-      console.log(body.password);
-      console.log(user.toJSON().password);
-      console.log(user.checkPassword(body.password, user.toJSON().password));
 
       if (!isPasswordMatch) {
         return res.status(409).send({

@@ -132,6 +132,15 @@ class InputValidator {
       ...InputValidator.integerValidator('shipping_region_id')
     ];
   }
+
+  static cartValidator() {
+    return [
+      sanitizeBody(['size', 'color', 'product_id']).trim(),
+      ...InputValidator.stringValidator('size'),
+      ...InputValidator.stringValidator('color'),
+      ...InputValidator.integerValidator('product_id'),
+    ];
+  }
 }
 
 export default InputValidator;
