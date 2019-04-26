@@ -10,7 +10,7 @@
     "db:seed": "node_modules/.bin/sequelize db:seed:all",
     "lint": "node_modules/.bin/eslint ./src",
     "lint:fix": "yarn lint --fix",
-    "serve": "node dist/server",
+    "serve": "node dist/server/app.js",
     "start": "yarn serve",
     "start:dev": "nodemon --exec babel-node src/server/app.js",
     "pretest": "NODE_ENV=test babel-node src/database/migrations/DbMigrate.js && NODE_ENV=test yarn db:seed",
