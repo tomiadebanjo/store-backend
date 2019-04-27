@@ -64,5 +64,22 @@ export default (sequelize, DataTypes) => {
     timestamps: false
   });
 
+  orders.associate = (models) => {
+    orders.belongsTo(models.customer, {
+      foreignKey: 'customer_id',
+      targetKey: 'customer_id'
+    });
+
+    orders.belongsTo(models.shipping, {
+      foreignKey: 'shipping_id',
+      targetKey: 'shipping_id'
+    });
+
+    orders.belongsTo(models.tax, {
+      foreignKey: 'tax_id',
+      targetKey: 'tax_id'
+    });
+  };
+
   return orders;
 };

@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/tomiadebanjo/turin-backend/tree/develop.svg?style=svg)](https://circleci.com/gh/tomiadebanjo/turin-backend/tree/develop)
+
 # ECOMMERCE-SHOP
 
 e-commerce application
