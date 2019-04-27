@@ -14,4 +14,6 @@ shoppingCartRouter.post(
 
 shoppingCartRouter.get('/shoppingCart', ShoppingCartController.getShoppingCart);
 
+shoppingCartRouter.delete('/shoppingCart/empty', ShoppingCartController.emptyShoppingCart);
+
 export default shoppingCartRouter;

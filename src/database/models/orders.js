@@ -79,6 +79,10 @@ export default (sequelize, DataTypes) => {
       foreignKey: 'tax_id',
       targetKey: 'tax_id'
     });
+
+    orders.hasMany(models.order_detail, {
+      foreignKey: 'order_id'
+    });
   };
 
   return orders;

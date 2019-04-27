@@ -39,6 +39,18 @@ class ShoppingController {
       next(error);
     }
   }
+
+  static async emptyShoppingCart(req, res, next) {
+    try {
+      const { session: { cartId } } = req;
+
+      await ShoppingCartService.emptyShoppingCartByCartId(cartId);
+
+      return res.status(200).send([]);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 export default ShoppingController;
