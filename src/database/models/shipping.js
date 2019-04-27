@@ -27,5 +27,12 @@ export default function (sequelize, DataTypes) {
     timestamps: false
   });
 
+  shipping.associate = (models) => {
+    shipping.belongsTo(models.shipping_region, {
+      foreignKey: 'shipping_region_id',
+      targetKey: 'shipping_region_id'
+    });
+  };
+
   return shipping;
 }

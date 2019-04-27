@@ -48,6 +48,7 @@ export default (sequelize, DataTypes) => {
       foreignKey: 'product_id',
       targetKey: 'product_id'
     });
-  }
+  };
+
   return shopping_cart;
 };

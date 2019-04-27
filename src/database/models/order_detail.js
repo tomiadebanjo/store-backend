@@ -46,5 +46,17 @@ export default (sequelize, DataTypes) => {
     }
   );
 
+  order_detail.associate = (models) => {
+    order_detail.belongsTo(models.orders, {
+      foreignKey: 'order_id',
+      targetKey: 'order_id'
+    });
+
+    order_detail.belongsTo(models.product, {
+      foreignKey: 'product_id',
+      targetKey: 'product_id'
+    });
+  };
+
   return order_detail;
 };

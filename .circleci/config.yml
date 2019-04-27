@@ -9,10 +9,6 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: circle_test
           MYSQL_HOST: 127.0.0.1
-          # MYSQL_ALLOW_EMPTY_PASSWORD: true
-          # MYSQL_DATABASE: circle_test
-          # MYSQL_HOST: 127.0.0.1
-          # MYSQL_USER: root
 
     steps:
       - checkout
@@ -32,9 +28,6 @@ jobs:
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
-      # - run:
-      #     name: Database setup
-      #     command: echo ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root' | mysql -u root -p root
       - run:
           name: Run Tests
           command: yarn test
