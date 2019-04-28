@@ -5,6 +5,7 @@ import cors from 'cors';
 import session from 'express-session';
 import sequelizeStore from 'connect-session-sequelize';
 import morgan from 'morgan';
+import path from 'path';
 
 import db from '../database/models';
 import routes from '../routes';
@@ -38,8 +39,16 @@ myStore.sync();
 
 app.use(ShoppingCartUtility.generateCartId);
 
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, '../views'));
+app.use(express.static(path.join(__dirname, '../views')));
+
 app.get('/', (req, res) => {
   res.send('Welcome to the e-commerce platform');
+});
+
+app.get('/checkout', (req, res) => {
+  res.render('index');
 });
 
 
