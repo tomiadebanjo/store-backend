@@ -36,6 +36,7 @@ module.exports = {
     '<rootDir>/src/database/migrations',
     '<rootDir>/src/database/seeders',
     '<rootDir>/src/database/config',
+    '<rootDir>/src/views',
   ],
 
   // A list of reporter names that Jest uses when writing coverage reports

@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src="https://js.stripe.com/v3/")
+    title Tom's Store
+  body
+    h1  Welcome to Tom's Store
+    form(action="javascript:void(0)" method="post" id="payment-form")
+      div(class="form-row")
+        label(for="card-element")
+        | Credit Card
+        div(id="card-element")
+          | <!-- A Stripe Element will be inserted here. -->
+        div(id="card-errors" role="alert")
+      button Submit Payment
+    script(src="./scripts/payment.js")
