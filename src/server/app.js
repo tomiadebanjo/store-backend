@@ -51,7 +51,6 @@ app.get('/checkout', (req, res) => {
   res.render('index');
 });
 
-
 routes(app);
 
 app.use((err, req, res, next) => {

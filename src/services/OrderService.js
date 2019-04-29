@@ -1,6 +1,7 @@
 import models from '../database/models';
 import OrderDetailService from './OrderDetailService';
 import ShoppingCartService from './ShoppingCartService';
+import HttpError from '../helpers/ErrorHandler';
 
 const { orders, order_detail, shipping, tax } = models;
 
@@ -29,10 +30,13 @@ class OrderService {
     return orderInfo;
   }
 
-  static async fetchOrderInfo(order_id) {
-    const orderDetails = await orders.findByPk(order_id, {
-      include: [order_detail, shipping, tax ]
+  static async fetchOrderInfo({ order_id, customer_id }) {
+    const orderDetails = await orders.findOne({
+      where: { customer_id, order_id },
+      include: [order_detail, shipping, tax]
     });
+
+    HttpError.throwErrorIfNullOrEmpty(orderDetails, 'Order not found');
     return orderDetails;
   }
 }
