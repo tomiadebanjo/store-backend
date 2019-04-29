@@ -43,8 +43,8 @@ class OrderController {
 
   static async getOrderDetails(req, res, next) {
     try {
-      const { params: { order_id } } = req;
-      const details = await OrderService.fetchOrderInfo(order_id);
+      const { params: { order_id }, decoded: { customer_id } } = req;
+      const details = await OrderService.fetchOrderInfo({ order_id, customer_id });
 
       return res.status(201).send(details);
     } catch (error) {

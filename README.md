@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/tomiadebanjo/turin-backend/tree/develop.svg?style=svg)](https://circleci.com/gh/tomiadebanjo/turin-backend/tree/develop)
+[![CircleCI](https://circleci.com/gh/tomiadebanjo/store-backend/tree/develop.svg?style=svg&circle-token=34e483d7d5906a4a65bd66871b3d965f594681a3)](https://circleci.com/gh/tomiadebanjo/store-backend/tree/develop)
 
 # ECOMMERCE-SHOP
 
@@ -12,7 +12,7 @@ e-commerce application
 * [x] Support paging if we have too many items.
 * [x] Users can see item details by selecting a specific item.
 * [x] Users can add items to their shopping carts.
-* [x] Users can register/login using website custom forms, or social login libraries.
+* [x] Users can register/login using website custom forms
 * [x] Users can checkout with 3rd party payment gateways: Paypal or Stripe.
 * [x] Users will get confirmations over emails about their orders.
 
@@ -22,7 +22,7 @@ API is live at https://ecommerce-backend-9012.herokuapp.com/
 
 ## API Documentation
 
-API documenntation: https://documenter.getpostman.com/view/5572663/S1ETQwDJ
+API documenntation: https://documenter.getpostman.com/view/4204388/S1LpZX8P
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ab45639974f498a3866e)
 
