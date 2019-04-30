@@ -141,6 +141,14 @@ class InputValidator {
       ...InputValidator.integerValidator('product_id'),
     ];
   }
+
+  static stripeValidator() {
+    return [
+      sanitizeBody(['stripeToken', 'order_id']).trim(),
+      ...InputValidator.stringValidator('stripeToken'),
+      ...InputValidator.integerValidator('order_id')
+    ];
+  }
 }
 
 export default InputValidator;
