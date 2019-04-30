@@ -4,7 +4,6 @@ class AuthValidator {
   static validateToken(req, res, next) {
     try {
       const token = req.headers['user-key'];
-      console.log(token, !token);
 
       if (!token) {
         return res.status(401).send({

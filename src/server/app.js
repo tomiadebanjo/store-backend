@@ -20,7 +20,7 @@ const secret = process.env.SECRET;
 
 const SessionStore = sequelizeStore(session.Store);
 const myStore = new SessionStore({
-  db: db.sequelize
+  db: db.sequelize,
 });
 
 app.use(cors());
@@ -32,7 +32,8 @@ app.use(session({
   secret,
   store: myStore,
   resave: false,
-  proxy: true
+  proxy: true,
+  saveUninitialized: false
 }));
 
 myStore.sync();
